@@ -20,10 +20,8 @@ service: serverless-circleci-test # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
-
-# you can overwrite defaults here
- stage: dev
- region: us-east-2
+  stage: dev
+  region: us-east-2
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
