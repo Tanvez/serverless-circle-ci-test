@@ -53,9 +53,9 @@ jobs:
           name: Deploy
           # command: sls deploy --stage pre
           command: |
-            if [ "${CIRCLE_BRANCH}" == "dev" ]; then
+            if [ ["${CIRCLE_BRANCH}" == "dev" ]]; then
               sls deploy --stage dev
-            elif [ "${CIRCLE_BRANCH}"== "production" ]; then   
+            elif [ ["${CIRCLE_BRANCH}"== "production"] ]; then   
               sls deploy --stage prod
 
 workflows:
