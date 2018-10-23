@@ -50,27 +50,17 @@ jobs:
           name: Install Serverless
           command: sudo npm i -g serverless
       - run:
-          # name: Deploy
-          # # command: sls deploy --stage pre
-          # command: |
-          #   if [ ["${CIRCLE_BRANCH}"] == "dev" ];
-          #   then
-          #     sls deploy --stage dev
-          #   elif [ ["${CIRCLE_BRANCH}]"== "production" ];
-          #   then
-          #     sls deploy --stage prod
-          - type: deploy
-            name: "Deploy to staging"
-            command: |
-              if [ "${CIRCLE_BRANCH}" == "dev" ];
-              then sls deploy --stage dev
-              fi
-          - type: deploy
-            name: "Deploy to production"
-            command: |
-              if [ "${CIRCLE_BRANCH}" == "production" ];
-              then sls deploy --stage prod
-              fi
+          name: Deploy
+          # command: sls deploy --stage pre
+          command: |
+            if [ ["${CIRCLE_BRANCH}"] == "dev" ];
+            then
+              sls deploy --stage dev
+              
+            elif [ ["${CIRCLE_BRANCH}]"== "production" ];
+            then
+              sls deploy --stage prod
+            fi
 
 workflows:
   version: 2
