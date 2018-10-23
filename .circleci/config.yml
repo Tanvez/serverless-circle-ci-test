@@ -43,13 +43,15 @@ jobs:
     docker:
       - image: circleci/node:8.10
     steps:
+      - checkout:
       - restore_cache:
           key: v1-dependencies-
       - run:
-          name: Install Serverless and Dependencies
-          command: |
-            sudo npm i -g serverless
-            sls deploy --stage pre
+          name: Install Serverless
+          command: sudo npm i -g serverless
+      -run: 
+          name: Deploy      
+          command: sls deploy --stage pre
 
 workflows:
   version: 2
