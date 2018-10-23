@@ -48,8 +48,10 @@ jobs:
       - restore_cache:
           key: v1-dependencies-
       - run:
-          name: Deploy application
-          command: sls deploy --stage pre
+          name: Install Serverless and deploy application
+          command: |
+            sudo npm i -g serverless
+            sls deploy --stage pre
 
 workflows:
   version: 2
