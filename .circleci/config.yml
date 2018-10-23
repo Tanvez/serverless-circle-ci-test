@@ -51,12 +51,7 @@ jobs:
           command: sudo npm i -g serverless
       - run:
           name: Deploy
-          command:
-            # if [ "${CIRCLE_BRANCH}" == "dev" ];
-            # then
-            sls deploy --stage pre
-            # elif [ "${CIRCLE_BRANCH}"== "production" ];
-            # then sls deploy --stage prod
+          command: sls deploy --stage pre
 
 workflows:
   version: 2
