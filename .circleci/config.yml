@@ -72,10 +72,14 @@ workflows:
             - build
           filters:
             branches:
-              only: dev
+              only:
+                - dev
+                - production
       - deploy:
           requires:
             - test
           filters:
             branches:
-              only: dev
+              only:
+                - dev
+                - production
