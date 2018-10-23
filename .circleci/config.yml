@@ -49,10 +49,7 @@ jobs:
           name: Install Serverless and Dependencies
           command: |
             sudo npm i -g serverless
-            npm install
-      - run:
-          name: Deploy Application
-          command: sls deploy --stage pre
+            sls deploy --stage pre
 
 workflows:
   version: 2
