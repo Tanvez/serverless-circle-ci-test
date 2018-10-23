@@ -17,10 +17,8 @@ jobs:
             - v1-dependencies-
 
       - run:
-          name: Install Serverless CLI and dependencies
-          command: |
-            sudo npm i -g serverless
-            npm install
+          name: Install dependencies
+          command: npm install
 
       - save_cache:
           paths:
@@ -48,8 +46,10 @@ jobs:
       - restore_cache:
           key: v1-dependencies-
       - run:
-          name: Install Serverless
-          command: sudo npm i -g serverless
+          name: Install Serverless and Dependencies
+          command: |
+            sudo npm i -g serverless
+            npm install
       - run:
           name: Deploy Application
           command: sls deploy --stage pre
