@@ -20,6 +20,7 @@ service: serverless-circleci-test # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs8.10
+
   #region option
   region: ${opt:region, self:custom.defaultRegion}
 
@@ -55,9 +56,14 @@ provider:
 functions:
   hello:
     handler: handler.hello
-#    The following are a few example events you can configure
-#    NOTE: Please make sure to change your handler code to work with those events
-#    Check the event documentation for details
+    #    The following are a few example events you can configure
+    #    NOTE: Please make sure to change your handler code to work with those events
+    #    Check the event documentation for details
+    events:
+      - http:
+          path: hello
+          method: get
+          cors: true
 #    events:
 #      - http:
 #          path: users/create
