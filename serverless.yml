@@ -59,11 +59,18 @@ functions:
     #    The following are a few example events you can configure
     #    NOTE: Please make sure to change your handler code to work with those events
     #    Check the event documentation for details
+
+    #    Apigateway endpoint
     events:
       - http:
           path: hello
           method: get
           cors: true
+          integration: lambda
+          response:
+            headers:
+              Content-Type: "'text/html'"
+            template: $input.path('$')
 #    events:
 #      - http:
 #          path: users/create
