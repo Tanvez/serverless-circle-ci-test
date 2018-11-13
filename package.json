@@ -13,7 +13,5 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0"
   },
-  "dependencies": {
-    "env-cmd": "^8.0.2"
-  }
+  "dependencies": {}
 }
