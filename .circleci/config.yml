@@ -55,7 +55,7 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
-              sls deploy --region us-east-2 --stage dev
+              sls deploy --region us-east-2
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
