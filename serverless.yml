@@ -61,7 +61,7 @@ provider:
 #               type: string
 
 functions:
-  calculator:
+  calculator-lambda:
     handler: handler.hello
 
     #    Apigateway endpoint
