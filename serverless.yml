@@ -67,7 +67,7 @@ functions:
     #    Apigateway endpoint
     events:
       - http:
-          path: hello/test44
+          path: hello/test50
           method: post
           cors: true
           integration: lambda
