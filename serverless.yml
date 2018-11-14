@@ -69,7 +69,7 @@ functions:
           integration: lambda
           response:
             headers:
-              Content-Type: "'text/html'"
+              Content-Type: "'application/json'"
             template: $input.path('$')
 #    events:
 #      - http:
