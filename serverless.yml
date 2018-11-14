@@ -27,7 +27,7 @@ provider:
     restApiId: axllcz6s0d
     restApiRootResourceId: jlgozwzme4
     restApiResources:
-      /posts: nvou1b
+      /test: nvou1b
 # custom:
 #   # You must have the documentation object
 #   documentation:
