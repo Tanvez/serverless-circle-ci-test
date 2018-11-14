@@ -36,9 +36,9 @@ functions:
           cors: true
           integration: lambda
           response:
-            headers:
-              Content-Type: "'text/html'"
-            template: $input.path('$')
+            # headers:
+            #   Content-Type: "'text/html'"
+            template: $input.path('$body')
             # statusCodes:
             #   201:
             #     pattern: "" # Default response method
