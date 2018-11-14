@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: test # NOTE: update this with your service name
+service: test2 # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -26,6 +26,8 @@ provider:
   apiGateway:
     restApiId: axllcz6s0d
     restApiRootResourceId: jlgozwzme4
+    restApiResources:
+      /posts: nvou1b
 # custom:
 #   # You must have the documentation object
 #   documentation:
@@ -65,7 +67,7 @@ functions:
     #    Apigateway endpoint
     events:
       - http:
-          path: test
+          path: test2
           method: post
           cors: true
           integration: lambda
