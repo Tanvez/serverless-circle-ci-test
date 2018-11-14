@@ -23,7 +23,6 @@ provider:
 
   #region option
   region: ${opt:region, self:custom.defaultRegion}
-provider:
   apiGateway:
     restApiId: axllcz6s0d
     restApiRootResourceId: jlgozwzme4
