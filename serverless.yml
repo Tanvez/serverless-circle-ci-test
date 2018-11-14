@@ -38,7 +38,7 @@ functions:
           response:
             headers:
               Content-Type: "'text/html'"
-            template: $input.path('$.body')
+            template: $input.path('$')
             statusCodes:
               201:
                 pattern: "" # Default response method
