@@ -59,7 +59,7 @@ jobs:
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
-              sls deploy --region us-east-1 --stage prod
+              sls deploy --region us-east-1
             fi
 
 workflows:
