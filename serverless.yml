@@ -27,7 +27,7 @@ provider:
     restApiId: axllcz6s0d
     restApiRootResourceId: jlgozwzme4
     restApiResources:
-      /test: nvou1b
+      /hello: nvou1b
 # custom:
 #   # You must have the documentation object
 #   documentation:
@@ -67,7 +67,7 @@ functions:
     #    Apigateway endpoint
     events:
       - http:
-          path: test/test4
+          path: /test4
           method: post
           cors: true
           integration: lambda
