@@ -36,11 +36,9 @@ functions:
           cors: true
           integration: lambda
           response:
-             text/xhtml: '{ "stage" : "$context.stage" }'
-              application/json: '{ "httpMethod" : "$context.httpMethod" }'
-            # headers:
-            #   Content-Type: "'text/html'"
-            # template: $input.path('$')
+            headers:
+              Content-Type: "'text/html'"
+            template: $input.path('$')
             # statusCodes:
             #   201:
             #     pattern: "" # Default response method
