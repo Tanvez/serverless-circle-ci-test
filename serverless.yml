@@ -69,8 +69,18 @@ functions:
           integration: lambda
           response:
             headers:
-              Content-Type: "'application/json'"
+              Content-Type: "'text/html'"
             template: $input.path('$')
+            statusCodes:
+              201:
+                pattern: "" # Default response method
+              409:
+                pattern: '.*"statusCode":409,.*' # JSON response
+                template:
+                  application/json: $input.path("$.errorMessage") # JSON return object
+                  application/xml: $input.path("$.body.errorMessage") # XML return object
+                headers:
+                  Content-Type: "'application/json+hal'"
 #    events:
 #      - http:
 #          path: users/create
