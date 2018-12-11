@@ -63,45 +63,44 @@ provider:
 functions:
   calculator-lambda:
     handler: handler.hello
-
     #    Apigateway endpoint
-    events:
-      - http:
-          path: hello/test50
-          method: post
-          cors: true
-          integration: lambda
-          # documentation:
-          #   summary: Gets a simple message
-          #   tags:
-          #     - Tag1
-          #   description: >
-          #     Demonstrates a GET method. You can see query string parameters,
-          #     request headers, response body and response headers.
-          #   queryParams:
-          #     - name: firstParam
-          #       description: The first param that we want, you MUST pass it
-          #       required: true
-          #     - name: secondParam
-          #       description: The second param. This one is optional
-          #   methodResponses:
-          #     - statusCode: "200"
-          #       responseModels:
-          #         "application/json": body
-          # response:
-          # headers:
-          #   Content-Type: "'text/html'"
-          # template: $input.path('$body')
-          # statusCodes:
-          #   201:
-          #     pattern: "" # Default response method
-          #   409:
-          #     pattern: '.*"statusCode":409,.*' # JSON response
-          #     template:
-          #       application/json: $input.path("$.errorMessage") # JSON return object
-          #       application/xml: $input.path("$.body.errorMessage") # XML return object
-          #     headers:
-          #       Content-Type: "'application/json+hal'"
+    # events:
+    #   - http:
+    #       path: hello/test50
+    #       method: post
+    #       cors: true
+    #       integration: lambda
+    # documentation:
+    #   summary: Gets a simple message
+    #   tags:
+    #     - Tag1
+    #   description: >
+    #     Demonstrates a GET method. You can see query string parameters,
+    #     request headers, response body and response headers.
+    #   queryParams:
+    #     - name: firstParam
+    #       description: The first param that we want, you MUST pass it
+    #       required: true
+    #     - name: secondParam
+    #       description: The second param. This one is optional
+    #   methodResponses:
+    #     - statusCode: "200"
+    #       responseModels:
+    #         "application/json": body
+    # response:
+    # headers:
+    #   Content-Type: "'text/html'"
+    # template: $input.path('$body')
+    # statusCodes:
+    #   201:
+    #     pattern: "" # Default response method
+    #   409:
+    #     pattern: '.*"statusCode":409,.*' # JSON response
+    #     template:
+    #       application/json: $input.path("$.errorMessage") # JSON return object
+    #       application/xml: $input.path("$.body.errorMessage") # XML return object
+    #     headers:
+    #       Content-Type: "'application/json+hal'"
 #    events:
 #      - http:
 #          path: users/create
