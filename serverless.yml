@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: test2 # NOTE: update this with your service name
+service: serverless # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -23,11 +23,11 @@ provider:
 
   #region option
   region: ${opt:region, self:custom.defaultRegion}
-  apiGateway:
-    restApiId: axllcz6s0d
-    restApiRootResourceId: jlgozwzme4
-    restApiResources:
-      /hello: nvou1b
+  # apiGateway:
+  #   restApiId: axllcz6s0d
+  #   restApiRootResourceId: jlgozwzme4
+  #   restApiResources:
+  #     /hello: nvou1b
 # custom:
 #   # You must have the documentation object
 #   documentation:
