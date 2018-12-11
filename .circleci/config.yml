@@ -76,8 +76,8 @@ workflows:
       #           - dev
       #           - production
       - deploy:
-          requires:
-            - test
+          # requires:
+          #   - test
           filters:
             branches:
               only:
