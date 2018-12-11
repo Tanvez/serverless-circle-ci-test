@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: lambda # NOTE: update this with your service name
+service: get # NOTE: update this with your service name
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -61,7 +61,7 @@ provider:
 #               type: string
 
 functions:
-  calculator-lambda:
+  hello:
     handler: handler.hello
     #    Apigateway endpoint
     # events:
