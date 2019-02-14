@@ -85,7 +85,7 @@ jobs:
 
       - run:
           name: "Install pyton"
-          command: apt-get install -y python3-pip
+          command: sudo apt-get install -y python3-pip
           # "sudo apt-get -y -qq install awscli"
           # "sudo pip install awscli"
           # "pip install --upgrade awscli"
