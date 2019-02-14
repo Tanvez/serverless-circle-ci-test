@@ -84,18 +84,20 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
       - run:
           name: "Install awscli"
-          command: "sudo apt-get -y -qq install awscli"
+          command: |
+            # "sudo apt-get install python-pip"
+            "sudo apt-get -y -qq install awscli"
+            # "sudo pip install awscli"
+            "pip install --upgrade awscli"
       - run:
           name: Deploy via AWS
           command: |
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
-              aws configure set default.region us-east-2
               npm run deploy-dev
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
-              aws configure set default.region us-east-1
               npm run deploy-prod
             fi
 
