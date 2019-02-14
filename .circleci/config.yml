@@ -77,13 +77,15 @@ jobs:
           name: Deploy via AWS
 
           command: |
+            npm run echo
+            npm run zip
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
-              npm run deploy
+              npm run deploy-dev
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
-              npm run deploy
+              npm run deploy-prod
             fi
 
 workflows:

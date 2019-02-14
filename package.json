@@ -6,7 +6,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha **/*.spec.js",
     "zip": "zip -q -r ../Archive.zip .",
-    "deploy": "echo $awslambdaarn"
+    "echo": "echo $awsLambdaArn",
+    "deploy-dev": "aws lambda update-function-code --function-name $devAwsLambdaArn --zip-file fileb://function.zip",
+    "deploy-prod": "aws lambda update-function-code --function-name $prodAwsLambdaArn --zip-file fileb://function.zip"
   },
   "keywords": [],
   "author": "",
