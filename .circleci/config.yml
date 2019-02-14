@@ -26,12 +26,12 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - store_artifacts:
-          path: node_modules
-      - persist_to_workspace:
-          root: .
-          paths:
-            - node_modules
+      # - store_artifacts:
+      #     path: node_modules
+      # - persist_to_workspace:
+      #     root: .
+      #     paths:
+      #       - node_modules
 
   # test:
   #   docker:
@@ -113,8 +113,8 @@ workflows:
                 - dev
                 - production
       - deploy:
-          # requires:
-          #   - test
+          requires:
+            - build
           filters:
             branches:
               only:
