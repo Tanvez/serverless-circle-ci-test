@@ -39,6 +39,30 @@ jobs:
   #           npm install
   #           npm test --coverage
 
+  # Serverless Deployment
+  # deploy:
+  #   docker:
+  #     - image: circleci/node:8.10
+  #   steps:
+  #     - restore_cache:
+  #         key: v1-dependencies-
+  #     - checkout
+  #     - run:
+  #         name: Install Serverless
+  #         command: sudo npm i -g serverless
+  #     - run:
+  #         name: Deploy
+  #         # command: sls deploy --stage pre
+  #         command: |
+  #           if [ "${CIRCLE_BRANCH}" == "dev" ];
+  #           then
+  #             sls deploy --region us-east-2 --stage dev
+
+  #           elif [ "${CIRCLE_BRANCH}" == "production" ];
+  #           then
+  #             sls deploy --region us-east-1 --stage prod
+  #           fi
+
   deploy:
     docker:
       - image: circleci/node:8.10
@@ -47,19 +71,19 @@ jobs:
           key: v1-dependencies-
       - checkout
       - run:
-          name: Install Serverless
-          command: sudo npm i -g serverless
+          name: "Install awscli"
+          command: "sudo apt-get -y -qq install awscli"
       - run:
-          name: Deploy
-          # command: sls deploy --stage pre
+          name: Deploy via AWS
+
           command: |
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
-              sls deploy --region us-east-2 --stage dev
+              npm run deploy
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
-              sls deploy --region us-east-1 --stage prod
+              npm run deploy
             fi
 
 workflows:

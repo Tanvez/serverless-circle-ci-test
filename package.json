@@ -4,7 +4,9 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha **/*.spec.js"
+    "test": "./node_modules/.bin/mocha **/*.spec.js",
+    "zip": "zip -q -r ../Archive.zip .",
+    "deploy": "echo $awslambdaarn"
   },
   "keywords": [],
   "author": "",
