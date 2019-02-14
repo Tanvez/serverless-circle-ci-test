@@ -82,19 +82,25 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
-      # - run:
-      #     name: "Install awscli"
-      #     command:
-      #       "sudo apt-get -y -qq install awscli"
-      # "sudo pip install awscli"
-      # "pip install --upgrade awscli"
+
       - run:
-          name: "Install awscli upgrade"
-          command: |
-            # "sudo apt-get -y -qq install awscli"
-            "curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py"
-            "python get-pip.py"
-            "pip install awscli --upgrade"
+          name: "Install pyton"
+          command: apt-get install -y python3-pip
+          # "sudo apt-get -y -qq install awscli"
+          # "sudo pip install awscli"
+          # "pip install --upgrade awscli"
+
+      - run:
+          name: "Install awscli"
+          command: pip install awscli
+          # "sudo apt-get -y -qq install awscli"
+          # "sudo pip install awscli"
+          # "pip install --upgrade awscli"
+
+      - run:
+          name: "Install awscli"
+          command: pip install awscli --upgrade
+
       - run:
           name: Deploy via AWS
           command: |
