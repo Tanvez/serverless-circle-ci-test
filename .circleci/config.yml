@@ -103,15 +103,15 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build
-      # - test:
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #         only:
-      #           - dev
-      #           - production
+      - build:
+          # - test:
+          #     requires:
+          #       - build
+          filters:
+            branches:
+              only:
+                - dev
+                - production
       - deploy:
           # requires:
           #   - test
