@@ -92,14 +92,14 @@ jobs:
 
       - run:
           name: "Install awscli"
-          command: pip3 install awscli
+          command: sudo pip3 install awscli
           # "sudo apt-get -y -qq install awscli"
           # "sudo pip install awscli"
           # "pip install --upgrade awscli"
 
       - run:
           name: "Install awscli"
-          command: pip3 install awscli --upgrade
+          command: sudo pip3 install awscli --upgrade
 
       - run:
           name: Deploy via AWS
