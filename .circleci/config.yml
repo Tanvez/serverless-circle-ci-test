@@ -77,14 +77,14 @@ jobs:
           name: Deploy via AWS
 
           command: |
-            npm run echo
-            npm run zip
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
+              aws configure set default.region us-east-2
               npm run deploy-dev
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
+              aws configure set default.region us-east-1
               npm run deploy-prod
             fi
 

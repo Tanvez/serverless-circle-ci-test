@@ -5,10 +5,9 @@
   "main": "handler.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha **/*.spec.js",
-    "zip": "zip -q -r ./Archive.zip .",
-    "echo": "echo $awsLambdaArn",
-    "deploy-dev": "aws lambda update-function-code --function-name $devAwsLambdaArn --zip-file fileb://Archive.zip",
-    "deploy-prod": "aws lambda update-function-code --function-name $prodAwsLambdaArn --zip-file fileb://Archive.zip"
+    "zip": "zip -q -r ../Archive.zip .",
+    "deploy-dev": "npm run zip && aws configure set default.region us-east-2 && aws lambda update-function-code --function-name testing-an-already-existing --zip-file fileb://../Archive.zip",
+    "deploy-prod": "npm run zip && aws configure set default.region us-east-1 && aws lambda update-function-code --function-name testing-an-already-existing  --zip-file fileb://../Archive.zip"
   },
   "keywords": [],
   "author": "",
