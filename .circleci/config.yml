@@ -24,7 +24,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-
+          key: v1-dependencies-{{ checksum "package.json" }}
   # test:
   #   docker:
   #     - image: circleci/node:8.10
@@ -67,9 +67,11 @@ jobs:
     docker:
       - image: circleci/node:8.10
     steps:
+      - checkout
+      - attach_workspace:
+          at: .
       - restore_cache:
           key: v1-dependencies-
-      - checkout
       - run:
           name: "Install awscli"
           command: "sudo apt-get -y -qq install awscli"
