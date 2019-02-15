@@ -8,7 +8,7 @@
     "zip": "zip -q -r ../Archive.zip .",
     "deploy-dev": "npm run zip && aws configure set default.region us-east-2 && aws lambda update-function-code --function-name testing-an-already-existing --zip-file fileb://../Archive.zip",
     "deploy-prod": "npm run zip && aws configure set default.region us-east-1 && aws lambda update-function-code --function-name testing-an-already-existing  --zip-file fileb://../Archive.zip",
-    "publish": "aws publish-version --function-name update-function-code "
+    "publish": "aws publish-version --function-name testing-an-already-existing"
   },
   "keywords": [],
   "author": "",
