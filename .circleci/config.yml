@@ -47,6 +47,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
+            - v1-devDependencies-{{checksum "package.json" }}
       # run tests!
       - run:
           name: Run tests with coverage
