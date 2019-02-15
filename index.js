@@ -5,7 +5,7 @@ exports.handler = async (event, context, callback) => {
   return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
-      message: "Testing publish version number",
+      message: "Testing publish version $LATEST",
       input: event
     })
   });
