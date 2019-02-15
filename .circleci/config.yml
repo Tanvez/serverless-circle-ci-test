@@ -106,12 +106,10 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "dev" ];
             then
               npm run deploy-dev
-              npm run publish
               
             elif [ "${CIRCLE_BRANCH}" == "production" ];
             then
               npm run deploy-prod
-              npm run publish
             fi
              
 
