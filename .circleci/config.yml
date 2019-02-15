@@ -21,6 +21,18 @@ jobs:
           command: |
             npm install
 
+      - run:
+          name: "Install python"
+          command: sudo apt-get install -y python3-pip
+
+      - run:
+          name: "Install awscli"
+          command: sudo pip3 install awscli
+
+      - run:
+          name: "Install awscli update"
+          command: sudo pip3 install awscli --upgrade
+
       - save_cache:
           paths:
             - node_modules
@@ -89,17 +101,17 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
 
-      - run:
-          name: "Install python"
-          command: sudo apt-get install -y python3-pip
+      # - run:
+      #     name: "Install python"
+      #     command: sudo apt-get install -y python3-pip
 
-      - run:
-          name: "Install awscli"
-          command: sudo pip3 install awscli
+      # - run:
+      #     name: "Install awscli"
+      #     command: sudo pip3 install awscli
 
-      - run:
-          name: "Install awscli update"
-          command: sudo pip3 install awscli --upgrade
+      # - run:
+      #     name: "Install awscli update"
+      #     command: sudo pip3 install awscli --upgrade
 
       - run:
           name: Deploy via AWS
