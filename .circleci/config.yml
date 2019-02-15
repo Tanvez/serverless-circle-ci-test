@@ -41,6 +41,8 @@ jobs:
       - attach_workspace:
           at: .
       - restore_cache:
+          paths:
+            - node_modules
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
@@ -48,7 +50,7 @@ jobs:
       - run:
           name: Run tests with coverage
           command: |
-            npm install
+            # npm install
             npm run test
 
       - store_artifacts:
