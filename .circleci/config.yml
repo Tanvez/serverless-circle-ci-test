@@ -33,19 +33,21 @@ jobs:
       #     paths:
       #       - node_modules
 
-  # test:
-  #   docker:
-  #     - image: circleci/node:8.10
-  #   steps:
-  #     - restore_cache:
-  #         key: v1-dependencies-
-  #     - checkout
-  #     # run tests!
-  #     - run:
-  #         name: Run tests with coverage
-  #         command: |
-  #           npm install
-  #           npm test --coverage
+  test:
+    docker:
+      - image: circleci/node:8.10
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      # run tests!
+      - run:
+          name: Run tests with coverage
+          command: |
+            npm test
 
   # Serverless Deployment
   # deploy:
@@ -84,21 +86,15 @@ jobs:
             - v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-          name: "Install pyton"
+          name: "Install python"
           command: sudo apt-get install -y python3-pip
-          # "sudo apt-get -y -qq install awscli"
-          # "sudo pip install awscli"
-          # "pip install --upgrade awscli"
 
       - run:
           name: "Install awscli"
           command: sudo pip3 install awscli
-          # "sudo apt-get -y -qq install awscli"
-          # "sudo pip install awscli"
-          # "pip install --upgrade awscli"
 
       - run:
-          name: "Install awscli"
+          name: "Install awscli update"
           command: sudo pip3 install awscli --upgrade
 
       - run:
@@ -118,9 +114,9 @@ workflows:
   build_and_deploy:
     jobs:
       - build:
-          # - test:
-          #     requires:
-          #       - build
+          - test:
+              requires:
+                - build
           filters:
             branches:
               only:
