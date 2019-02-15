@@ -1,6 +1,6 @@
 "use strict";
 
-exports.hello = async (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
   return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
