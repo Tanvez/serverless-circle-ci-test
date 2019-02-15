@@ -6,7 +6,7 @@
   "scripts": {
     "test": "env NODE_ENV=test istanbul cover _mocha -- -u bdd $(find tests -name '*.js')",
     "zip": "zip -q -r ../Archive.zip .",
-    "deploy-dev": "npm run zip && aws configure set default.region us-east-2 && aws lambda update-function-code --function-name testing-an-already-existing --zip-file fileb://../Archive.zip publish-layer-version --layer-name testing-an-already-existing --description v2.0.0 --content []",
+    "deploy-dev": "npm run zip && aws configure set default.region us-east-2 && aws lambda update-function-code --function-name testing-an-already-existing --zip-file fileb://../Archive.zip --publish && aws lambda update-alias --function-name testing-an-already-existing --name dev",
     "deploy-prod": "npm run zip && aws configure set default.region us-east-1 && aws lambda update-function-code --function-name testing-an-already-existing  --zip-file fileb://../Archive.zip --publish",
     "publish": "aws publish-version --function-name testing-an-already-existing"
   },
