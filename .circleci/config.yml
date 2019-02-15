@@ -20,7 +20,6 @@ jobs:
           name: Install dependencies
           command: |
             npm install
-            touch .env
 
       - save_cache:
           paths:
@@ -44,11 +43,12 @@ jobs:
       - restore_cache:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
       # run tests!
       - run:
           name: Run tests with coverage
           command: |
-            npm test
+            npm run test
 
   # Serverless Deployment
   # deploy:
