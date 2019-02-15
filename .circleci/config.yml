@@ -27,14 +27,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-          key: v2-devDependencies-{{ checksum "package.json" }}
+          # key: v2-devDependencies-{{ checksum "package.json" }}
 
-      # - store_artifacts:
-      #     path: node_modules
-      # - persist_to_workspace:
-      #     root: .
-      #     paths:
-      #       - node_modules
+      - store_artifacts:
+          path: node_modules
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
 
   test:
     docker:
@@ -47,8 +47,8 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-            - v2-devDependencies-{{ checksum "package.json" }}
-            - v2-devDependencies
+            # - v2-devDependencies-{{ checksum "package.json" }}
+            # - v2-devDependencies
       # - run:
       #     name: npm install again
       #     command: |
