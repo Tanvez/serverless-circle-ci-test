@@ -26,9 +26,8 @@ jobs:
       - save_cache:
           paths:
             - node_modules
-          keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v2-devDependencies-{{ checksum "package.json" }}
+          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-devDependencies-{{ checksum "package.json" }}
 
       # - store_artifacts:
       #     path: node_modules
