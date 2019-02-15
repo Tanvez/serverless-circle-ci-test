@@ -1,6 +1,7 @@
 "use strict";
 
 exports.handler = async (event, context, callback) => {
+  console.info(`Input: ${JSON.stringify(event)}`);
   return callback(null, {
     statusCode: 200,
     body: JSON.stringify({
