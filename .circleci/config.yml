@@ -114,9 +114,14 @@ workflows:
   build_and_deploy:
     jobs:
       - build:
-          - test:
-              requires:
-                - build
+          filters:
+            branches:
+              only:
+                - dev
+                - production
+      - test:
+          requires:
+            - build
           filters:
             branches:
               only:
@@ -125,6 +130,7 @@ workflows:
       - deploy:
           requires:
             - build
+            - test
           filters:
             branches:
               only:
